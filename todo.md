@@ -4,3 +4,4 @@
 - [x] Agregar un footer
 - [ ] Mejorar navbar
 - [ ] Hacer desplegables los proyectos y agregar capturas para más informacion
+- [ ] Agregar analiticas
