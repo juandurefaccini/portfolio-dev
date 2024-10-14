@@ -5,9 +5,9 @@ import { personalInfo, summary, technologies, softSkills, projects, experience }
 const groupedTechnologies = technologies.reduce((acc, tech) => {
   if (!acc[tech.category]) {
     acc[tech.category] = [];
-  }
-  acc[tech.category].push(tech);
-  return acc;
+}
+acc[tech.category].push(tech);
+return acc;
 }, {} as Record<string, typeof technologies>);
 
 const violetColor = "#6B46C1"; // Un violeta más suave
