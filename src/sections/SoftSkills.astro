@@ -1,4 +1,7 @@
 ---
+import Section from "../components/Section.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+
 type SoftSkill = {
   name: string;
   description: string;
@@ -26,10 +29,8 @@ const softSkills: SoftSkill[] = [
 ];
 ---
 
-<section class="my-16">
-  <h2 class="mb-6 text-center text-3xl font-semibold text-gray-800">
-    Habilidades Blandas
-  </h2>
+<Section id="habilidades-blandas">
+  <SectionTitle title="Habilidades Blandas" />
 
   <div class="grid grid-cols-1 gap-6 sm:grid-cols-4">
     {
@@ -41,4 +42,4 @@ const softSkills: SoftSkill[] = [
       ))
     }
   </div>
-</section>
+</Section>

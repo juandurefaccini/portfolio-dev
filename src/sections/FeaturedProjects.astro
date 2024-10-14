@@ -1,4 +1,7 @@
 ---
+import Section from "../components/Section.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+
 type Project = {
   name: string;
   description: string;
@@ -42,10 +45,8 @@ const projects: Project[] = [
 ];
 ---
 
-<section class="my-16">
-  <h2 class="mb-6 text-center text-3xl font-semibold text-gray-800">
-    Proyectos Destacados
-  </h2>
+<Section id="proyectos-destacados">
+  <SectionTitle title="Proyectos Destacados" />
 
   <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
     {
@@ -73,4 +74,4 @@ const projects: Project[] = [
       ))
     }
   </div>
-</section>
+</Section>

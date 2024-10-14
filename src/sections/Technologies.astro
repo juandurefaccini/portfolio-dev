@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import Section from "../components/Section.astro";
+import SectionTitle from "../components/SectionTitle.astro";
 
 type Technology = {
   name: string;
@@ -144,10 +146,8 @@ const groupedTechnologies = technologies.reduce(
 );
 ---
 
-<section class="my-16">
-  <h2 class="mb-6 text-center text-3xl font-semibold text-gray-800">
-    Tecnologías
-  </h2>
+<Section id="tecnologias">
+  <SectionTitle title="Tecnologías" />
   {
     Object.entries(groupedTechnologies).map(([category, techs]) => (
       <div class="mb-12">
@@ -174,4 +174,4 @@ const groupedTechnologies = technologies.reduce(
       </div>
     ))
   }
-</section>
+</Section>
