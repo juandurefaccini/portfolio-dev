@@ -3,59 +3,56 @@ type Project = {
   name: string;
   description: string;
   link: string | null;
+  tags: string[];
 };
 
 const projects: Project[] = [
   {
     name: "Registro de lactancia para infancia",
     description:
-      "Generé una aplicación web para llevar registro acerca de las ingestas de leche de una recién nacida.",
+      "Generé una aplicación web para llevar registro acerca de las ingestas de leche de una recién nacida para una amiga en Paraguay. La aplicación permitía llevar un registro de las tomas, la cantidad de leche ingerida y el tiempo que duraba cada toma. Esta aplicación permitió a la madre llevar un registro de la alimentación de su hija más agil y a los médicos tener un seguimiento más detallado de la misma.",
     link: null,
+    tags: ["Proyecto individual", "Proyecto no remunerado"],
   },
   {
     name: "Sistema de administración para UNICEN",
     description:
       "Actualmente mi trabajo de tesis es un sistema de administración para digitalizar los diferentes procesos existentes en las residencias universitarias de la UNICEN.",
     link: null,
-  },
-  {
-    name: "Planificación de rotación de cultivos",
-    description:
-      "Utilizando una hoja de cálculo basada en la lógica proporcionada por un ingeniero agrónomo, creamos una herramienta en Excel que simplifica las decisiones de gestión de cultivos. Luego, junto con mi equipo, desarrollamos una versión web accesible desde cualquier ubicación con conexión a internet. La lógica de la planilla se implementó completamente en el sistema web.",
-    link: null,
+    tags: ["Proyecto de tesis", "Sistema de administración"],
   },
   {
     name: "Gestión de documentos académicos",
     description:
-      "Desarrollé una aplicación que permite a los alumnos gestionar sus documentos académicos desde una interfaz intuitiva tanto en versión web como de escritorio.",
+      "Desarrollé una aplicación que permite a los alumnos gestionar sus documentos académicos desde una interfaz intuitiva tanto en versión web como de escritorio. La aplicación fue una solución entregada como trabajo final de una materia de la carrera. Esta herramienta buscaba replicar la funcionalidad de un google drive a menor escala",
     link: null,
-  },
-  {
-    name: "Generación de escenas simuladas a partir de una especificación en lenguaje natural",
-    description:
-      "Lideré un equipo de seis personas para implementar un sistema que genera escenas 3d simuladas a partir de descripciones en lenguaje natural.",
-    link: null,
+    tags: ["Proyecto de materia", "Proyecto grupal"],
   },
   {
     name: "Participación en el dictado de curso introductorio al desarrollo de videojuegos",
     description:
       "Colaboré como parte de un proyecto de extensión de la UNICEN, brindando apoyo en un curso introductorio sobre el desarrollo de videojuegos. Trabajamos en la historia de los mismos, los diferentes recursos utilizados para optimizar la performance y domos varias clases de introducción al desarrollo. El ciclo culminó con una jornada donde los participantes del curso tenían que realizar un juego en 6 horas.",
     link: null,
+    tags: [
+      "Proyecto de extensión",
+      "Proyecto no remunerado",
+      "Proyecto grupal",
+    ],
   },
 ];
 ---
 
-<section class="my-8">
-  <h2 class="text-3xl font-semibold mb-6 text-center text-gray-800">
+<section class="my-16">
+  <h2 class="mb-6 text-center text-3xl font-semibold text-gray-800">
     Proyectos Destacados
   </h2>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
     {
       projects.map((project) => (
-        <div class="bg-white p-4 rounded-lg ">
-          <h3 class="text-lg font-bold mb-2">{project.name}</h3>
-          <p class="text-sm text-gray-600 text-justify">
+        <div class="flex flex-col rounded-lg bg-white p-4">
+          <h3 class="mb-2 text-lg font-bold">{project.name}</h3>
+          <p class="text-justify text-sm text-gray-600">
             {project.description}
           </p>
           {project.link && (
@@ -63,6 +60,15 @@ const projects: Project[] = [
               Ver proyecto
             </a>
           )}
+          {/* Auto fill space */}
+          <div class="flex-grow" />
+          <div class="mt-2 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span class="rounded-full bg-violet-100 px-2 py-1 text-xs text-violet-800">
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
       ))
     }

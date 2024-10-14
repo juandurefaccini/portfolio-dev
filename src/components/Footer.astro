@@ -1,18 +1,37 @@
-<footer class="bg-gray-800 text-white py-6">
-  <div class="max-w-6xl mx-auto text-center">
-    <p>&copy; 2024 Juan Duré Faccini</p>
-    <div class="space-x-4">
+---
+import { Icon } from "astro-icon/components";
+---
+
+<footer class="bg-violet-800 py-8 text-white">
+  <div class="mx-auto max-w-6xl text-center">
+    <p class="mb-4">&copy; 2024 Juan Duré Faccini</p>
+    <div class="flex justify-center space-x-4">
       <a
         href="mailto:juan.durefaccini@outlook.com.ar"
-        class="hover:text-gray-400">Email</a
+        target="_blank"
+        class="flex items-center space-x-2 rounded-full bg-violet-100 px-3 py-1 text-sm font-semibold text-violet-700 hover:bg-violet-200"
       >
-      <a href="https://github.com/juandurefaccini" class="hover:text-gray-400"
-        >GitHub</a
+        <Icon name="mdi:email" class="h-5 w-5" />
+        <span>Email</span>
+      </a>
+
+      <a
+        href="https://github.com/juandurefaccini"
+        target="_blank"
+        class="flex items-center space-x-2 rounded-full bg-violet-100 px-3 py-1 text-sm font-semibold text-violet-700 hover:bg-violet-200"
       >
+        <Icon name="mdi:github" class="h-5 w-5" />
+        <span>GitHub</span>
+      </a>
+
       <a
         href="https://www.linkedin.com/in/juan-agust%C3%ADn-dur%C3%A9-faccini"
-        class="hover:text-gray-400">LinkedIn</a
+        target="_blank"
+        class="flex items-center space-x-2 rounded-full bg-violet-100 px-3 py-1 text-sm font-semibold text-violet-700 hover:bg-violet-200"
       >
+        <Icon name="mdi:linkedin" class="h-5 w-5" />
+        <span>LinkedIn</span>
+      </a>
     </div>
   </div>
 </footer>

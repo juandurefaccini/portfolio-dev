@@ -10,7 +10,7 @@ const softSkills: SoftSkill[] = [
     description: "Experiencia liderando equipos de desarrollo de software.",
   },
   {
-    name: "Análizar",
+    name: "Analizar",
     description: "Experiencia en el análisis funcional de sistemas.",
   },
   {
@@ -26,16 +26,16 @@ const softSkills: SoftSkill[] = [
 ];
 ---
 
-<section class="my-8">
-  <h2 class="text-3xl font-semibold mb-6 text-center text-gray-800">
+<section class="my-16">
+  <h2 class="mb-6 text-center text-3xl font-semibold text-gray-800">
     Habilidades Blandas
   </h2>
 
-  <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-4">
     {
       softSkills.map((skill) => (
-        <div class="bg-white p-4 rounded-lg ">
-          <h3 class="text-lg font-bold mb-2">{skill.name}</h3>
+        <div class="rounded-lg bg-white p-4">
+          <h3 class="mb-2 text-lg font-bold">{skill.name}</h3>
           <p class="text-sm text-gray-600">{skill.description}</p>
         </div>
       ))

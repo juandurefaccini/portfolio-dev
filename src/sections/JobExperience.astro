@@ -5,6 +5,8 @@ type JobExperienceDetail = {
   title: string;
   description: string;
   link?: string;
+  technologies?: string[];
+  tags?: string[];
 };
 
 type JobExperience = {
@@ -23,22 +25,30 @@ const jobExperiences: JobExperience[] = [
         description:
           "Consultora de desarrollo de software. Responsable de crear la landing page",
         link: "https://www.zanova.tech/",
+        technologies: ["NextJs", "Tailwind CSS"],
+        tags: ["Landing Page"],
       },
       {
         title: "Hermes",
         description:
           "Agencia de asistentes con inteligencia artificial. Fui responsable de crear el branding, la landing page y el desarrollo del producto, además de generar demostraciones para potenciales clientes, lo que resultó clave para atraer interesados.",
         link: "https://www.hermes-chatbot.online/",
+        technologies: ["Astro", "Tailwind CSS"],
+        tags: ["Landing Page", "Branding", "Formulario de contacto"],
       },
       {
         title: "Venom Store",
         description:
           "Desarrollo de una tienda de ecommerce con punto de venta. El proyecto fue redirigido a una plataforma de tienda nube por cambios en los requerimientos del cliente.",
+        technologies: ["React", "Tailwind CSS"],
+        tags: ["E-Commerce", "Punto de Venta"],
       },
       {
         title: "Tracking de lactancia",
         description:
           "Desarrollé una plataforma para llevar registro de la lactancia de una madre para evitar el uso del papel.",
+        technologies: ["React", "Tailwind CSS"],
+        tags: ["Single Page Application"],
       },
     ],
   },
@@ -50,17 +60,23 @@ const jobExperiences: JobExperience[] = [
         title: "2B Conexión",
         description:
           "Desarrollo y mantenimiento de un CRM para una empresa de telecomunicaciones. Participé en todo el ciclo de vida del proyecto, incluyendo autentificación, procesamiento de tablas tanto en el servidor como en el cliente, chat, notificaciones internas y por email, administración de roles, panel de estadísticas y generación de reportes en PDF.",
+        technologies: ["React", "PostgreSQL", "Springboot"],
+        tags: ["CRM", "Telecomunicaciones"],
       },
       {
         title: "Aplicación de cursos de Inteligencia Artificial",
         description:
           "Presupuesté y desarrollé una aplicación en React Native, mejorando el código y añadiendo funcionalidades como reproducción de videos con Chromecast para iOS y Android, listas de favoritos, diseño responsive y descarga de videos para reproducción offline.",
         link: "https://play.google.com/store/apps/developer?id=Jonhernandez.education&hl=en-US",
+        technologies: ["React Native", "Chromecast"],
+        tags: ["Educación", "Inteligencia Artificial"],
       },
       {
-        title: "Wrapper de ChatGPT",
+        title: "Asistente comandado por voz",
         description:
-          "Presupuesté y desarrollé un prototipo en FlutterFlow para un cliente, que luego fue convertido a Flutter. La aplicación hace uso de la API de OpenAI para generar respuestas y se integra con servicios de generación de voz. Diseñada para ser completamente responsive y configurable desde un panel externo.",
+          "Presupuesté y desarrollé un prototipo en FlutterFlow para un cliente, que convertí a Flutter una vez aprobado el presupuesto. La aplicación hace uso de la API de OpenAI para generar respuestas y se integra con servicios de generación de voz. Diseñada para ser completamente responsive y configurable desde un panel externo provisto por Make.",
+        technologies: ["Flutter", "OpenAI"],
+        tags: ["Asistente de voz", "FlutterFlow", "Prototipo"],
       },
       {
         title: "Mantenimiento de frontend y backend",
@@ -74,9 +90,10 @@ const jobExperiences: JobExperience[] = [
     period: "Jul. 2021 - Jun. 2022 · 1 año",
     details: [
       {
-        title: "ERP",
+        title: "Sistema ERP",
         description:
           "Realicé tareas de mantenimiento y mejoras para diferentes sistemas ERP. Implementé mejoras en el frontend, base de datos y backend, contribuyendo a optimizar el rendimiento y la usabilidad de los sistemas. Generación de API Rest. En ciertos casos tuve que comunicarme con los clientes para la toma de requerimientos y para comunicar avances.",
+        technologies: ["HTML", ".NET", "SQL Server", "Razor"],
       },
     ],
   },
@@ -89,101 +106,82 @@ const jobExperiences: JobExperience[] = [
         description:
           "Participé en el desarrollo temprano de My Ice Cream Journey, un videojuego mobile. Contribuí con el diseño de interfaces visuales, la lógica de game design y la implementación del prototipo. El juego fué lanzado en la Play Store pero actualmente no se encuentra disponible.",
         link: "https://youtube.com/shorts/dhVPdSjEFpU?si=MFJyXheWL8eT8GYH",
+        technologies: ["Unity", "C#"],
       },
     ],
   },
 ];
 ---
 
-<section class="my-8">
-  <h2 class="text-3xl font-semibold mb-6 text-center text-gray-800">
-    Experiencia Profesional
-  </h2>
+<section class="py-16">
+  <div class="container mx-auto max-w-5xl px-4">
+    <h2 class="mb-12 text-center text-4xl font-bold text-gray-900">
+      Experiencia Profesional
+    </h2>
 
-  <div class="flex flex-col gap-4">
-    {
-      jobExperiences.map((jobExperience, index) => (
-        <div
-          class="bg-gray-50 p-4 rounded-lg shadow-sm group"
-          on:click={() => toggleAccordion(index)}
-        >
-          <button
-            class="w-full flex justify-between items-center text-lg font-semibold mb-1 text-gray-700 hover:text-violet-500 transition-colors"
-            data-index={index}
-          >
-            {jobExperience.title}
-            <Icon
-              name={`mdi:chevron-down`}
-              class="w-6 h-6 text-gray-500 chevron-icon transition-transform"
-              data-index={index}
-            />
-          </button>
-          <p class="text-sm text-gray-500 mb-2">{jobExperience.period}</p>
-          <div
-            class="accordion-content grid grid-cols-1 gap-2 overflow-hidden transition-max-height duration-500 max-h-0"
-            data-index={index}
-          >
-            {jobExperience.details.map((detail) => (
-              <div class="bg-white p-3 rounded-lg border border-gray-200 flex justify-between items-center">
-                <div>
-                  <h4 class="text-md font-medium mb-1 text-gray-700">
-                    {detail.title}
-                  </h4>
-                  <p class="text-sm text-gray-500 mb-2 text-justify">
-                    {detail.description}
-                  </p>
-                </div>
-                {detail.link && (
-                  <a
-                    href={detail.link}
-                    class="ml-4 text-violet-500 underline hover:text-violet-700"
-                  >
-                    <Icon
-                      name="mdi:link"
-                      class="w-6 h-6 text-gray-500 hover:text-violet-700"
-                    />
-                  </a>
-                )}
+    <div class="relative">
+      <div class="absolute left-8 top-0 h-full w-0.5 bg-gray-200 md:left-1/2">
+      </div>
+
+      {
+        jobExperiences.map((job, index) => (
+          <div class="mb-16 md:flex md:items-center">
+            <div class="mb-8 md:mb-0 md:w-1/2 md:pr-8 md:text-right">
+              <div class="sticky top-0">
+                <h3 class="text-2xl font-semibold text-gray-800">
+                  {job.title}
+                </h3>
+                <p class="text-sm text-gray-600">{job.period}</p>
               </div>
-            ))}
+            </div>
+
+            <div class="relative md:w-1/2 md:pl-8">
+              <div class="absolute -left-4 top-0 h-8 w-8 rounded-full bg-violet-500 md:left-0 md:left-[-17px] md:top-0" />
+              {job.details.map((detail) => (
+                <div class="mb-6 rounded-lg bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
+                  <div class="mb-4 flex items-start justify-between">
+                    <div>
+                      <h4 class="text-xl font-bold text-gray-800">
+                        {detail.title}
+                      </h4>
+                      {detail.technologies && (
+                        <div class="mt-2 flex flex-wrap gap-2">
+                          {detail.technologies.map((tech) => (
+                            <span class="inline-flex items-center rounded-full bg-violet-100 px-2.5 py-0.5 text-xs font-medium text-violet-800">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    {detail.link && (
+                      <a
+                        href={detail.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-violet-600 hover:text-violet-800"
+                      >
+                        <Icon name="mdi:external-link" class="h-6 w-6" />
+                      </a>
+                    )}
+                  </div>
+                  <p class="mb-4 text-gray-600">{detail.description}</p>
+                  {detail.tags && (
+                    <ul class="flex flex-wrap gap-x-4 gap-y-2">
+                      {detail.tags.map((tag) => (
+                        <li class="inline-flex items-center text-sm text-gray-500">
+                          <span class="mr-1.5 h-1.5 w-1.5 rounded-full bg-gray-500" />
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))
-    }
+        ))
+      }
+    </div>
   </div>
 </section>
-
-<script>
-  // Necesitamos ejecutar este script solo en el navegador
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("button[data-index]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const index = button.getAttribute("data-index");
-        toggleAccordion(index);
-      });
-    });
-  });
-
-  function toggleAccordion(index) {
-    const chevron = document.querySelector(
-      `.chevron-icon[data-index="${index}"]`
-    );
-    const content = document.querySelector(
-      `.accordion-content[data-index="${index}"]`
-    );
-
-    if (content.style.maxHeight) {
-      content.style.maxHeight = null;
-      chevron.style.transform = "rotate(0deg)";
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-      chevron.style.transform = "rotate(180deg)";
-    }
-  }
-</script>
-
-<style>
-  .accordion-content {
-    transition: max-height 0.5s ease;
-  }
-</style>

@@ -20,40 +20,45 @@ import JobExperience from "../sections/JobExperience.astro";
 
     <Navbar />
 
-    <main class="p-6 max-w-6xl mx-auto">
-      <section class="my-8 flex justify-between items-end">
+    <main class="mx-auto max-w-6xl p-6">
+      <section class="my-8 flex items-end justify-between">
         <div class="size-64">
           <img src="yo.jpg" alt="Juan Faccini" class="rounded-full" />
         </div>
         <div>
-          <h1 class="text-6xl font-bold text-end mb-4">Juan Faccini</h1>
-          <p class="text-end text-lg mb-2">Desarrollador de Software</p>
-          <div class="flex space-x-4 justify-end">
+          <h1 class="mb-4 text-end text-6xl font-bold">Juan Faccini</h1>
+          <p class="mb-2 text-end text-lg">
+            Desarrollador de Software, Argentina 🇦🇷
+          </p>
+          <div class="flex justify-end space-x-4">
             <!-- Mail -->
             <a
               href="mailto:juan.durefaccini@outlook.com.ar"
               target="_blank"
-              class="text-violet-500 hover:underline"
+              class="flex items-center space-x-2 rounded-full bg-violet-100 px-3 py-1 text-sm font-semibold text-violet-700 hover:bg-violet-200"
             >
-              <Icon name="mdi:email" class="w-6 h-6" />
+              <Icon name="mdi:email" class="h-5 w-5" />
+              <span>Email</span>
             </a>
 
-            <!-- 	LinkedIn -->
+            <!-- LinkedIn -->
             <a
               href="https://www.linkedin.com/in/juan-agustín-duré-faccini"
               target="_blank"
-              class="text-violet-500 hover:underline"
+              class="flex items-center space-x-2 rounded-full bg-violet-100 px-3 py-1 text-sm font-semibold text-violet-700 hover:bg-violet-200"
             >
-              <Icon name="mdi:linkedin" class="w-6 h-6" />
+              <Icon name="mdi:linkedin" class="h-5 w-5" />
+              <span>LinkedIn</span>
             </a>
 
             <!-- GitHub -->
             <a
               href="https://github.com/juandurefaccini"
               target="_blank"
-              class="text-violet-500 hover:underline"
+              class="flex items-center space-x-2 rounded-full bg-violet-100 px-3 py-1 text-sm font-semibold text-violet-700 hover:bg-violet-200"
             >
-              <Icon name="mdi:github" class="w-6 h-6" />
+              <Icon name="mdi:github" class="h-5 w-5" />
+              <span>GitHub</span>
             </a>
           </div>
         </div>
@@ -61,25 +66,39 @@ import JobExperience from "../sections/JobExperience.astro";
 
       <!-- Descripcion -->
       <section class="my-8">
-        <p class="text-justify">
-          Soy un estudiante avanzado de la carrera de Ingeniería de Sistemas,
-          actualmente residiendo en la ciudad de Mar del Plata.Busco seguir
-          creciendo en roles donde pueda aplicar mis conocimientos, liderar
-          equipos y contribuir con soluciones tecnológicas innovadoras.
-        </p>
+        <div class="space-y-6 text-lg text-gray-700">
+          <p class="text-justify">
+            Actualmente me encuentro finalizando mis estudios de la carrera
+            Ingeniería de Sistemas. Busco seguir creciendo en roles donde pueda
+            aplicar mis conocimientos, liderar equipos y contribuir con
+            soluciones tecnológicas innovadoras.
+          </p>
+          <p class="text-justify">
+            Trabajo hace más de 4 años en la industria del desarrollo de
+            software, y he tenido la oportunidad de trabajar en diferentes
+            proyectos, tanto en el ámbito académico como en el profesional. Me
+            apasiona el desarrollo de software y la tecnología en general.
+          </p>
+        </div>
+
+        <!-- Tecnologías -->
+        <Technologies />
+
+        <!-- Habilidades blandas -->
+        <SoftSkills />
+
+        <!-- Proyectos destacados -->
+        <FeaturedProjects />
+
+        <!-- Experiencia laboral -->
+        <JobExperience />
       </section>
-
-      <!-- Tecnologías -->
-      <Technologies />
-
-      <!-- Habilidades blandas -->
-      <SoftSkills />
-
-      <!-- Proyectos destacados -->
-      <FeaturedProjects />
-
-      <!-- Experiencia laboral -->
-      <JobExperience />
     </main>
+
+    <p class="my-16 text-center text-sm text-gray-500">
+      Este proyecto fué creado con Astro y TailwindCSS.
+    </p>
+
+    <Footer />
   </body>
 </html>

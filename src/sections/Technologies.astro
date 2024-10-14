@@ -4,6 +4,7 @@ import { Icon } from "astro-icon/components";
 type Technology = {
   name: string;
   icon: string;
+  category: "front end" | "backend" | "mobile" | "servicios" | "otros";
   level: "principiante" | "intermedio" | "avanzado";
 };
 
@@ -11,126 +12,165 @@ const technologies: Technology[] = [
   {
     name: "React",
     icon: "vscode-icons:file-type-reactjs",
+    category: "front end",
     level: "avanzado",
   },
-  {
-    name: "bash",
-    icon: "devicon:bash",
-    level: "avanzado",
-  },
-  {
-    name: "Git",
-    icon: "vscode-icons:file-type-git",
-    level: "avanzado",
-  },
-  {
-    name: "Astro",
-    icon: "devicon:astro",
-    level: "intermedio",
-  },
-
   {
     name: "Next.js",
     icon: "vscode-icons:file-type-next",
-    level: "intermedio",
-  },
-  {
-    name: "Node.js",
-    icon: "vscode-icons:file-type-node",
+    category: "front end",
     level: "intermedio",
   },
   {
     name: "Tailwind",
     icon: "vscode-icons:file-type-tailwind",
+    category: "front end",
     level: "intermedio",
   },
   {
-    name: "React Native",
-    icon: "vscode-icons:file-type-reactjs",
+    name: "Astro",
+    icon: "devicon:astro",
+    category: "front end",
+    level: "intermedio",
+  },
+  {
+    name: "Node.js",
+    icon: "vscode-icons:file-type-node",
+    category: "backend",
     level: "intermedio",
   },
   {
     name: "Springboot",
     icon: "devicon:spring",
+    category: "backend",
     level: "intermedio",
   },
   {
     name: ".NET",
     icon: "devicon:dot-net",
-    level: "intermedio",
-  },
-  {
-    name: "Unity",
-    icon: "devicon:unity",
+    category: "backend",
     level: "intermedio",
   },
   {
     name: "SQL",
     icon: "devicon:postgresql",
+    category: "backend",
     level: "intermedio",
   },
   {
     name: "Docker",
     icon: "vscode-icons:file-type-docker",
+    category: "backend",
     level: "intermedio",
   },
   {
-    name: "Firebase",
-    icon: "vscode-icons:file-type-firebase",
+    name: "bash",
+    icon: "devicon:bash",
+    category: "backend",
+    level: "avanzado",
+  },
+  {
+    name: "Git",
+    icon: "vscode-icons:file-type-git",
+    category: "backend",
+    level: "avanzado",
+  },
+  {
+    name: "React Native",
+    icon: "vscode-icons:file-type-reactjs",
+    category: "mobile",
     level: "intermedio",
   },
   {
     name: "Flutter",
     icon: "vscode-icons:file-type-flutter",
+    category: "mobile",
     level: "intermedio",
-  },
-  {
-    name: "Electron",
-    icon: "vscode-icons:file-type-reactjs",
-    level: "principiante",
   },
   {
     name: "Android",
     icon: "devicon:androidstudio",
+    category: "mobile",
     level: "principiante",
+  },
+  {
+    name: "Firebase",
+    icon: "vscode-icons:file-type-firebase",
+    category: "servicios",
+    level: "intermedio",
   },
   {
     name: "AWS",
     icon: "vscode-icons:file-type-aws",
+    category: "servicios",
     level: "principiante",
   },
   {
     name: "nginx",
     icon: "vscode-icons:file-type-nginx",
+    category: "servicios",
     level: "principiante",
+  },
+  {
+    name: "Electron",
+    icon: "vscode-icons:file-type-reactjs",
+    category: "otros",
+    level: "principiante",
+  },
+  {
+    name: "Unity",
+    icon: "devicon:unity",
+    category: "otros",
+    level: "intermedio",
   },
   {
     name: "Figma",
     icon: "devicon:figma",
+    category: "otros",
     level: "principiante",
   },
 ];
+
+const groupedTechnologies = technologies.reduce(
+  (acc, tech) => {
+    if (!acc[tech.category]) {
+      acc[tech.category] = [];
+    }
+    acc[tech.category].push(tech);
+    return acc;
+  },
+  {} as Record<string, Technology[]>
+);
 ---
 
-<section class="my-8">
-  <h2 class="text-3xl font-semibold mb-6 text-center text-gray-800">
+<section class="my-16">
+  <h2 class="mb-6 text-center text-3xl font-semibold text-gray-800">
     Tecnologías
   </h2>
-  <div
-    class="grid gap-4 w-full grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
-  >
-    {
-      technologies.map((technology) => (
-        <div class="flex items-center bg-white p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
-            <Icon name={technology.icon} class="w-6 h-6 text-gray-700" />
-          </div>
-          <div class="ml-3">
-            <h3 class="text-md font-medium text-gray-800">{technology.name}</h3>
-            <p class="text-xs text-gray-500 capitalize">{technology.level}</p>
-          </div>
+  {
+    Object.entries(groupedTechnologies).map(([category, techs]) => (
+      <div key={category} class="mb-12">
+        <h3 class="mb-4 text-2xl font-semibold capitalize text-gray-700">
+          {category}
+        </h3>
+        <div class="grid w-full grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          {techs.map((technology) => (
+            <div class="flex items-center rounded-lg border border-gray-200 bg-white p-3 transition-colors hover:bg-gray-50">
+              <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                <Icon name={technology.icon} class="h-6 w-6 text-gray-700" />
+              </div>
+              <div class="ml-3">
+                <h3 class="text-md font-medium text-gray-800">
+                  {technology.name}
+                </h3>
+                <p class="text-xs capitalize text-gray-500">
+                  {technology.level}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
-      ))
-    }
-  </div>
+      </div>
+    ))
+  }
 </section>
