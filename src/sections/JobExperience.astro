@@ -1,0 +1,118 @@
+---
+type JobExperienceDetail = {
+  title: string;
+  description: string;
+};
+
+type JobExperience = {
+  title: string;
+  period: string;
+  details: JobExperienceDetail[];
+};
+
+const jobExperiences: JobExperience[] = [
+  {
+    title: "Freelance",
+    period: "Ene. 2024 - Actualidad · 10 meses",
+    details: [
+      {
+        title: "Zenova",
+        description:
+          "Consultora de desarrollo de software. Responsable de crear la landing page",
+      },
+      {
+        title: "Hermes",
+        description:
+          "Agencia de asistentes con inteligencia artificial. Fui responsable de crear el branding, la landing page y el desarrollo del producto, además de generar demostraciones para potenciales clientes, lo que resultó clave para atraer interesados.",
+      },
+      {
+        title: "Venom Store",
+        description:
+          "Desarrollo de una tienda de ecommerce con punto de venta. El proyecto fue redirigido a una plataforma de tienda nube por cambios en los requerimientos del cliente.",
+      },
+      {
+        title: "Tracking de lactancia",
+        description:
+          "Desarrolle una plataforma para llevar registro de la lactancia de una madre para evitar el uso del papel.",
+      },
+    ],
+  },
+  {
+    title: "FixRiver",
+    period: "Jul. 2022 - Ago. 2024 · 2 años 2 meses",
+    details: [
+      {
+        title: "2B Conexión",
+        description:
+          "Desarrollo y mantenimiento de un CRM para una empresa de telecomunicaciones. Participé en todo el ciclo de vida del proyecto, incluyendo autenticación, procesamiento de tablas tanto en el servidor como en el cliente, chat, notificaciones internas y por email, administración de roles, panel de estadísticas y generación de reportes en PDF.",
+      },
+      {
+        title: "Aplicación de cursos de Inteligencia Artificial",
+        description:
+          "Presupuesté y desarrollé una aplicación en React Native, mejorando el código y añadiendo funcionalidades como reproducción de videos con Chromecast para iOS y Android, listas de favoritos, diseño responsive y descarga de videos para reproducción offline.",
+      },
+      {
+        title: "Wrapper de ChatGPT",
+        description:
+          "Presupuesté y desarrollé un prototipo en FlutterFlow para un cliente, que luego fue convertido a Flutter. La aplicación hace uso de la API de OpenAI para generar respuestas y se integra con servicios de generación de voz. Diseñada para ser completamente responsive y configurable desde un panel externo.",
+      },
+      {
+        title: "Mantenimiento de frontend y backend",
+        description:
+          "Mantenimiento de frontend y backend en diversos proyectos de la empresa que necesitaban mi colaboración.",
+      },
+    ],
+  },
+  {
+    title: "NSK WHANAU",
+    period: "Jul. 2021 - Jun. 2022 · 1 año",
+    details: [
+      {
+        title: "ERP",
+        description:
+          "Realicé tareas de mantenimiento y mejoras para diferentes sistemas ERP. Implementé mejoras en el frontend, base de datos y backend, contribuyendo a optimizar el rendimiento y la usabilidad de los sistemas. Generación de API Rest. En ciertos casos tuve que comunicarme con los clientes para la toma de requerimientos y para comunicar avances.",
+      },
+    ],
+  },
+  {
+    title: "PIP POP",
+    period: "Dic. 2020 - Jun. 2021 · 7 meses",
+    details: [
+      {
+        title: "My Ice Cream Journey",
+        description:
+          "Participé en el desarrollo temprano de My Ice Cream Journey, un videojuego mobile lanzado a producción. Contribuí con el diseño de interfaces visuales, la lógica de game design y la implementación del prototipo.",
+      },
+    ],
+  },
+];
+---
+
+<section class="my-8">
+  <h2 class="text-3xl font-semibold mb-6 text-center text-gray-800">
+    Experiencia Profesional
+  </h2>
+
+  <div class="flex flex-col gap-4">
+    {
+      jobExperiences.map((jobExperience) => (
+        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+          <h3 class="text-lg font-semibold mb-1 text-gray-700">
+            {jobExperience.title}
+          </h3>
+          <p class="text-sm text-gray-500 mb-2">{jobExperience.period}</p>
+          <div class="grid grid-cols-1 gap-2">
+            {jobExperience.details.map((detail) => (
+              <div class="bg-white p-3 rounded-lg border border-gray-200">
+                <h4 class="text-md font-medium mb-1 text-gray-700">
+                  {detail.title}
+                </h4>
+                <p class="text-sm text-gray-500">{detail.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

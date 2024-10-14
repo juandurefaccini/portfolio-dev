@@ -1,0 +1,134 @@
+---
+import { Icon } from "astro-icon/components";
+
+type Technology = {
+  name: string;
+  icon: string;
+  level: "principiante" | "intermedio" | "avanzado";
+};
+
+const technologies: Technology[] = [
+  {
+    name: "React",
+    icon: "vscode-icons:file-type-reactjs",
+    level: "avanzado",
+  },
+  {
+    name: "bash",
+    icon: "devicon:bash",
+    level: "avanzado",
+  },
+  {
+    name: "Git",
+    icon: "vscode-icons:file-type-git",
+    level: "avanzado",
+  },
+  {
+    name: "Astro",
+    icon: "devicon:astro",
+    level: "intermedio",
+  },
+
+  {
+    name: "Next.js",
+    icon: "vscode-icons:file-type-next",
+    level: "intermedio",
+  },
+  {
+    name: "Node.js",
+    icon: "vscode-icons:file-type-node",
+    level: "intermedio",
+  },
+  {
+    name: "Tailwind",
+    icon: "vscode-icons:file-type-tailwind",
+    level: "intermedio",
+  },
+  {
+    name: "Electron",
+    icon: "vscode-icons:file-type-reactjs",
+    level: "principiante",
+  },
+  {
+    name: "React Native",
+    icon: "vscode-icons:file-type-reactjs",
+    level: "intermedio",
+  },
+  {
+    name: "Springboot",
+    icon: "devicon:spring",
+    level: "intermedio",
+  },
+  {
+    name: ".NET",
+    icon: "devicon:dot-net",
+    level: "intermedio",
+  },
+  {
+    name: "Unity",
+    icon: "devicon:unity",
+    level: "intermedio",
+  },
+  {
+    name: "SQL",
+    icon: "devicon:postgresql",
+    level: "intermedio",
+  },
+  {
+    name: "Docker",
+    icon: "vscode-icons:file-type-docker",
+    level: "intermedio",
+  },
+  {
+    name: "Firebase",
+    icon: "vscode-icons:file-type-firebase",
+    level: "intermedio",
+  },
+  {
+    name: "Flutter",
+    icon: "vscode-icons:file-type-flutter",
+    level: "intermedio",
+  },
+  {
+    name: "Android",
+    icon: "devicon:androidstudio",
+    level: "principiante",
+  },
+  {
+    name: "AWS",
+    icon: "vscode-icons:file-type-aws",
+    level: "principiante",
+  },
+  {
+    name: "nginx",
+    icon: "vscode-icons:file-type-nginx",
+    level: "principiante",
+  },
+  {
+    name: "Figma",
+    icon: "devicon:figma",
+    level: "principiante",
+  },
+];
+---
+
+<section class="my-8">
+  <h2 class="text-3xl font-semibold mb-6 text-center text-gray-800">
+    Tecnologías
+  </h2>
+  <div class="flex flex-wrap justify-between gap-4 w-full">
+    {
+      technologies.map((technology) => (
+        <div class="flex items-center bg-white p-3  rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors w-full sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
+            <Icon name={technology.icon} class="w-6 h-6 text-gray-700" />
+          </div>
+          <div class="ml-3">
+            <h3 class="text-md font-medium text-gray-800">{technology.name}</h3>
+            <p class="text-xs text-gray-500 capitalize">{technology.level}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

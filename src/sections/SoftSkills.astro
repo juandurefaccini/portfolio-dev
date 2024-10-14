@@ -1,0 +1,44 @@
+---
+type SoftSkill = {
+  name: string;
+  description: string;
+};
+
+const softSkills: SoftSkill[] = [
+  {
+    name: "Liderar",
+    description: "Experiencia liderando equipos de desarrollo de software.",
+  },
+  {
+    name: "Análizar",
+    description: "Experiencia en el análisis funcional de sistemas.",
+  },
+  {
+    name: "Comunicacar",
+    description:
+      "Experiencia en comunicación con clientes para presentar avances.",
+  },
+  {
+    name: "Presupuestar",
+    description:
+      "Experiencia en la definición de presupuestos para proyectos de desarrollo de software.",
+  },
+];
+---
+
+<section class="my-8">
+  <h2 class="text-3xl font-semibold mb-6 text-center text-gray-800">
+    Habilidades Blandas
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
+    {
+      softSkills.map((skill) => (
+        <div class="bg-white p-4 rounded-lg ">
+          <h3 class="text-lg font-bold mb-2">{skill.name}</h3>
+          <p class="text-sm text-gray-600">{skill.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
