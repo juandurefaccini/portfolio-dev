@@ -55,7 +55,9 @@ const projects: Project[] = [
       projects.map((project) => (
         <div class="bg-white p-4 rounded-lg ">
           <h3 class="text-lg font-bold mb-2">{project.name}</h3>
-          <p class="text-sm text-gray-600">{project.description}</p>
+          <p class="text-sm text-gray-600 text-justify">
+            {project.description}
+          </p>
           {project.link && (
             <a href={project.link} class="text-violet-950 hover:underline">
               Ver proyecto

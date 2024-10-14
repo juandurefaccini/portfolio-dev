@@ -17,6 +17,9 @@ import JobExperience from "../sections/JobExperience.astro";
   </head>
   <body class="bg-violet-50 font-sans text-gray-800">
     <!-- <Navbar /> -->
+
+    <Navbar />
+
     <main class="p-6 max-w-6xl mx-auto">
       <section class="my-8 flex justify-between items-end">
         <div class="size-64">
@@ -29,15 +32,17 @@ import JobExperience from "../sections/JobExperience.astro";
             <!-- Mail -->
             <a
               href="mailto:juan.durefaccini@outlook.com.ar"
-              class="text-violet-950 hover:underline"
+              target="_blank"
+              class="text-violet-500 hover:underline"
             >
               <Icon name="mdi:email" class="w-6 h-6" />
             </a>
 
             <!-- 	LinkedIn -->
             <a
-              href="https://www.https://www.linkedin.com/in/juan-agust%C3%ADn-dur%C3%A9-faccini/"
-              class="text-violet-950 hover:underline"
+              href="https://www.linkedin.com/in/juan-agustín-duré-faccini"
+              target="_blank"
+              class="text-violet-500 hover:underline"
             >
               <Icon name="mdi:linkedin" class="w-6 h-6" />
             </a>
@@ -45,7 +50,8 @@ import JobExperience from "../sections/JobExperience.astro";
             <!-- GitHub -->
             <a
               href="https://github.com/juandurefaccini"
-              class="text-violet-950 hover:underline"
+              target="_blank"
+              class="text-violet-500 hover:underline"
             >
               <Icon name="mdi:github" class="w-6 h-6" />
             </a>
@@ -55,7 +61,7 @@ import JobExperience from "../sections/JobExperience.astro";
 
       <!-- Descripcion -->
       <section class="my-8">
-        <p>
+        <p class="text-justify">
           Soy un estudiante avanzado de la carrera de Ingeniería de Sistemas,
           actualmente residiendo en la ciudad de Mar del Plata.Busco seguir
           creciendo en roles donde pueda aplicar mis conocimientos, liderar
