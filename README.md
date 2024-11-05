@@ -22,6 +22,7 @@ Este es mi portfolio personal desarrollado con Astro y TailwindCSS. Sentite libr
 - [x] Mejorar aspecto de la seccion de experiencia laboral
 - [x] Agregar un footer
 - [X] Centralizar datos del CV
+- [ ] Agregar links a los repositorios en los proyectos Open Source
 - [ ] Agregar página de detalle de proyectos
 - [ ] Hacer que los tiempos de las experiencias se calculen solos
 - [ ] Mejorar navbar
