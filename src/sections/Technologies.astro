@@ -2,14 +2,7 @@
 import { Icon } from "astro-icon/components";
 import Section from "../components/Section.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import { technologies } from "../data/resumeData";
-
-type Technology = {
-  name: string;
-  icon: string;
-  category: "frontend" | "backend" | "mobile" | "servicios" | "otros";
-  level: "principiante" | "intermedio" | "avanzado";
-};
+import { technologies, type Technology } from "../data/resumeData";
 
 const groupedTechnologies = technologies.reduce(
   (acc, tech) => {

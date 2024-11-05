@@ -17,7 +17,14 @@ oportunidad de trabajar en diferentes proyectos, tanto en el ámbito académico 
 profesional. Me apasiona el desarrollo de software y la tecnología en general.
 `;
 
-export const technologies = [
+export type Technology = {
+  name: string;
+  icon: string;
+  category: "frontend" | "backend" | "mobile" | "servicios" | "otros";
+  level: "principiante" | "intermedio" | "avanzado";
+};
+
+export const technologies: Technology[] = [
   {
     name: "React",
     icon: "vscode-icons:file-type-reactjs",
@@ -226,7 +233,22 @@ export const projects = [
   },
 ];
 
-export const experience = [
+type JobExperienceDetail = {
+  title: string;
+  description: string;
+  link?: string;
+  technologies?: string[];
+  tags?: string[];
+};
+
+type JobExperience = {
+  title: string;
+  period: string;
+  details: JobExperienceDetail[];
+};
+
+
+export const experience: JobExperience[] = [
   {
     title: "Freelance",
     period: "Ene. 2024 - Actualidad · 10 meses",

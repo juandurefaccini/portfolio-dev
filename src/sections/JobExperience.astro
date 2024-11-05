@@ -3,20 +3,6 @@ import { Icon } from "astro-icon/components";
 import Section from "../components/Section.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import { experience } from "../data/resumeData";
-
-type JobExperienceDetail = {
-  title: string;
-  description: string;
-  link?: string;
-  technologies?: string[];
-  tags?: string[];
-};
-
-type JobExperience = {
-  title: string;
-  period: string;
-  details: JobExperienceDetail[];
-};
 ---
 
 <Section id="experiencia">
