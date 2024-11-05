@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";
 import Section from "../components/Section.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import { experience } from "../data/resumeData";
 
 type JobExperienceDetail = {
   title: string;
@@ -16,103 +17,6 @@ type JobExperience = {
   period: string;
   details: JobExperienceDetail[];
 };
-
-const jobExperiences: JobExperience[] = [
-  {
-    title: "Freelance",
-    period: "Ene. 2024 - Actualidad · 10 meses",
-    details: [
-      {
-        title: "Zenova",
-        description:
-          "Consultora de desarrollo de software. Fuí responsable de crear la landing page",
-        link: "https://www.zanova.tech/",
-        technologies: ["NextJs", "Tailwind CSS"],
-        tags: ["Landing Page"],
-      },
-      {
-        title: "Hermes",
-        description:
-          "Agencia de asistentes con inteligencia artificial. Fui responsable de crear el branding, la landing page y el desarrollo del producto, además de generar demostraciones para potenciales clientes, lo que resultó clave para atraer interesados.",
-        link: "https://www.hermes-chatbot.online/",
-        technologies: ["Astro", "Tailwind CSS"],
-        tags: ["Landing Page", "Branding", "Formulario de contacto"],
-      },
-      {
-        title: "Venom Store",
-        description:
-          "Desarrollo de una tienda de ecommerce con punto de venta. El proyecto fue redirigido a una plataforma de tienda nube por cambios en los requerimientos del cliente.",
-        technologies: ["React", "Tailwind CSS"],
-        tags: ["E-Commerce", "Punto de Venta"],
-      },
-      {
-        title: "Tracking de lactancia",
-        description:
-          "Desarrollé una plataforma para llevar registro de la lactancia de una madre, y así evitar el uso de documentos papel. Este proyecto facilitó la vida de la madre y permitió un seguimiento más detallado de la alimentación del bebé.",
-        technologies: ["React", "Tailwind CSS"],
-        tags: ["Single Page Application"],
-      },
-    ],
-  },
-  {
-    title: "FixRiver",
-    period: "Jul. 2022 - Ago. 2024 · 2 años 2 meses",
-    details: [
-      {
-        title: "2B Conexión",
-        description:
-          "Desarrollo y mantenimiento de un CRM para una empresa de telecomunicaciones. Participé en todo el ciclo de vida del proyecto, incluyendo autentificación, procesamiento de tablas tanto en el servidor como en el cliente, chat, notificaciones internas y por email, administración de roles, panel de estadísticas y generación de reportes en PDF.",
-        technologies: ["React", "PostgreSQL", "Springboot"],
-        tags: ["CRM", "Telecomunicaciones"],
-      },
-      {
-        title: "Aplicación de cursos de Inteligencia Artificial",
-        description:
-          "Presupuesté y desarrollé una aplicación en React Native, mejorando el código y añadiendo funcionalidades como reproducción de videos con Chromecast para iOS y Android, listas de favoritos, diseño responsive y descarga de videos para reproducción offline.",
-        link: "https://play.google.com/store/apps/developer?id=Jonhernandez.education&hl=en-US",
-        technologies: ["React Native", "Chromecast"],
-        tags: ["Educación", "Inteligencia Artificial"],
-      },
-      {
-        title: "Asistente comandado por voz",
-        description:
-          "Presupuesté y desarrollé un prototipo en FlutterFlow para un cliente, que convertí a Flutter una vez aprobado el presupuesto. La aplicación hace uso de la API de OpenAI para generar respuestas y se integra con servicios de generación de voz. Diseñada para ser completamente responsive y configurable desde un panel externo provisto por Make.",
-        technologies: ["Flutter", "OpenAI"],
-        tags: ["Asistente de voz", "FlutterFlow", "Prototipo"],
-      },
-      {
-        title: "Mantenimiento de frontend y backend",
-        description:
-          "Mantenimiento de frontend y backend en diversos proyectos de la empresa.",
-      },
-    ],
-  },
-  {
-    title: "NSK WHANAU",
-    period: "Jul. 2021 - Jun. 2022 · 1 año",
-    details: [
-      {
-        title: "Sistema ERP",
-        description:
-          "Realicé tareas de mantenimiento y mejoras para diferentes sistemas ERP. Implementé mejoras en el frontend, base de datos y backend, contribuyendo a optimizar el rendimiento y la usabilidad de los sistemas. Generación de API Rest. En ciertos casos participé en la comunicación con los clientes para la toma de requerimientos y el informe de avances.",
-        technologies: ["HTML", ".NET", "SQL Server", "Razor"],
-      },
-    ],
-  },
-  {
-    title: "PIP POP",
-    period: "Dic. 2020 - Jun. 2021 · 7 meses",
-    details: [
-      {
-        title: "My Ice Cream Journey",
-        description:
-          "Participé en el desarrollo temprano de My Ice Cream Journey, un videojuego mobile. Contribuí con el diseño de interfaces visuales, la lógica de game design y la implementación del prototipo. El juego fué lanzado en la Play Store pero actualmente no se encuentra disponible.",
-        link: "https://youtube.com/shorts/dhVPdSjEFpU?si=MFJyXheWL8eT8GYH",
-        technologies: ["Unity", "C#"],
-      },
-    ],
-  },
-];
 ---
 
 <Section id="experiencia">
@@ -123,13 +27,15 @@ const jobExperiences: JobExperience[] = [
     </div>
 
     {
-      jobExperiences.map((job, index) => (
+      experience.map((job, index) => (
         <div class="mb-16 md:flex md:items-start" data-aos="fade-up">
           <div class="relative mb-8 md:mb-0 md:w-1/2 md:pr-8 md:text-right">
-            <div class="sticky top-4 bg-violet-50 py-4" data-aos="fade-right" data-aos-delay="100">
-              <h3 class="text-2xl font-semibold text-gray-800">
-                {job.title}
-              </h3>
+            <div
+              class="sticky top-4 bg-violet-50 py-4"
+              data-aos="fade-right"
+              data-aos-delay="100"
+            >
+              <h3 class="text-2xl font-semibold text-gray-800">{job.title}</h3>
               <p class="text-sm text-gray-600">{job.period}</p>
             </div>
           </div>
@@ -137,7 +43,7 @@ const jobExperiences: JobExperience[] = [
           <div class="relative md:w-1/2 md:pl-8">
             <div class="hidden md:block absolute -left-4 top-0 h-8 w-8 rounded-full bg-violet-500 md:left-[-16px] md:top-4" />
             {job.details.map((detail, detailIndex) => (
-              <div 
+              <div
                 class="mb-6 rounded-lg bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl"
                 data-aos="fade-left"
                 data-aos-delay={200 + detailIndex * 100}

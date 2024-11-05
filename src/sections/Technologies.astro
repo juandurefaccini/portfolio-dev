@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";
 import Section from "../components/Section.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import { technologies } from "../data/resumeData";
 
 type Technology = {
   name: string;
@@ -9,131 +10,6 @@ type Technology = {
   category: "frontend" | "backend" | "mobile" | "servicios" | "otros";
   level: "principiante" | "intermedio" | "avanzado";
 };
-
-const technologies: Technology[] = [
-  {
-    name: "React",
-    icon: "vscode-icons:file-type-reactjs",
-    category: "frontend",
-    level: "avanzado",
-  },
-  {
-    name: "Next.js",
-    icon: "vscode-icons:file-type-next",
-    category: "frontend",
-    level: "intermedio",
-  },
-  {
-    name: "Tailwind",
-    icon: "vscode-icons:file-type-tailwind",
-    category: "frontend",
-    level: "intermedio",
-  },
-  {
-    name: "Astro",
-    icon: "devicon:astro",
-    category: "frontend",
-    level: "intermedio",
-  },
-  {
-    name: "bash",
-    icon: "devicon:bash",
-    category: "backend",
-    level: "avanzado",
-  },
-
-  {
-    name: "Node.js",
-    icon: "vscode-icons:file-type-node",
-    category: "backend",
-    level: "intermedio",
-  },
-  {
-    name: "Springboot",
-    icon: "devicon:spring",
-    category: "backend",
-    level: "intermedio",
-  },
-  {
-    name: ".NET",
-    icon: "devicon:dot-net",
-    category: "backend",
-    level: "intermedio",
-  },
-  {
-    name: "SQL",
-    icon: "devicon:postgresql",
-    category: "backend",
-    level: "intermedio",
-  },
-  
-  {
-    name: "React Native",
-    icon: "vscode-icons:file-type-reactjs",
-    category: "mobile",
-    level: "intermedio",
-  },
-  {
-    name: "Flutter",
-    icon: "vscode-icons:file-type-flutter",
-    category: "mobile",
-    level: "intermedio",
-  },
-  {
-    name: "Android",
-    icon: "devicon:androidstudio",
-    category: "mobile",
-    level: "principiante",
-  },
-  {
-    name: "Firebase",
-    icon: "vscode-icons:file-type-firebase",
-    category: "servicios",
-    level: "intermedio",
-  },
-  {
-    name: "AWS",
-    icon: "vscode-icons:file-type-aws",
-    category: "servicios",
-    level: "principiante",
-  },
-  {
-    name: "Git",
-    icon: "vscode-icons:file-type-git",
-    category: "otros",
-    level: "avanzado",
-  },
-  {
-    name: "Unity",
-    icon: "devicon:unity",
-    category: "otros",
-    level: "intermedio",
-  },
-  {
-    name: "nginx",
-    icon: "vscode-icons:file-type-nginx",
-    category: "otros",
-    level: "principiante",
-  },
-  {
-    name: "Figma",
-    icon: "devicon:figma",
-    category: "otros",
-    level: "principiante",
-  },
-  {
-    name: "Docker",
-    icon: "vscode-icons:file-type-docker",
-    category: "otros",
-    level: "intermedio",
-  },
-  {
-    name: "Electron",
-    icon: "vscode-icons:file-type-reactjs",
-    category: "otros",
-    level: "principiante",
-  },
-];
 
 const groupedTechnologies = technologies.reduce(
   (acc, tech) => {
