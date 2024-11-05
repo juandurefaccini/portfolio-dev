@@ -1,14 +1,24 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import { personalInfo, summary, technologies, softSkills, projects, experience } from "../data/resumeData";
+import {
+  personalInfo,
+  summary,
+  technologies,
+  softSkills,
+  projects,
+  experience,
+} from "../data/resumeData";
 
-const groupedTechnologies = technologies.reduce((acc, tech) => {
-  if (!acc[tech.category]) {
-    acc[tech.category] = [];
-}
-acc[tech.category].push(tech);
-return acc;
-}, {} as Record<string, typeof technologies>);
+const groupedTechnologies = technologies.reduce(
+  (acc, tech) => {
+    if (!acc[tech.category]) {
+      acc[tech.category] = [];
+    }
+    acc[tech.category].push(tech);
+    return acc;
+  },
+  {} as Record<string, typeof technologies>
+);
 
 const violetColor = "#6B46C1"; // Un violeta más suave
 const violetLightColor = "#EDE9FE"; // Un violeta muy claro para fondos
@@ -26,48 +36,157 @@ const violetLightColor = "#EDE9FE"; // Un violeta muy claro para fondos
         margin: 15mm;
       }
       body {
-        font-family: 'Helvetica', 'Arial', sans-serif;
+        font-family: "Helvetica", "Arial", sans-serif;
         line-height: 1.3;
         color: #333;
         margin: 0;
         padding: 0;
         font-size: 9pt;
       }
-      h1, h2, h3, h4 {
-        color: #2D3748;
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #2d3748;
         margin-top: 0;
         margin-bottom: 6px;
       }
-      h1 { font-size: 20pt; border-bottom: 2pt solid var(--violetColor); padding-bottom: 4pt; }
-      h2 { font-size: 14pt; border-bottom: 1pt solid var(--violetColor); padding-bottom: 2pt; margin-top: 12pt; }
-      h3 { font-size: 11pt; color: var(--violetColor); }
-      h4 { font-size: 10pt; font-style: italic; }
-      p, li { margin: 0 0 3pt 0; }
-      .section { margin-bottom: 10pt; page-break-inside: avoid; }
-      .no-print { display: none; }
-      ul { padding-left: 14pt; margin: 3pt 0; }
-      .contact-info { display: flex; justify-content: space-between; margin-bottom: 6pt; font-size: 8pt; }
-      .project, .job { margin-bottom: 8pt; padding-left: 6pt; border-left: 1.5pt solid var(--violetColor); }
-      .tech-category { margin-bottom: 6pt; }
-      .tech-list { display: flex; flex-wrap: wrap; gap: 3pt; }
-      .tech-item { background-color: var(--violetLightColor); padding: 1pt 3pt; border-radius: 2pt; font-size: 8pt; }
-      .page-break { page-break-before: always; }
-      a { color: var(--violetColor); text-decoration: none; }
-      .icon { display: inline-block; width: 10pt; height: 10pt; margin-right: 3pt; vertical-align: middle; }
-      .tag { background-color: var(--violetLightColor); padding: 1pt 2pt; border-radius: 2pt; font-size: 7pt; margin-right: 2pt; }
-      .timeline { position: relative; padding-left: 12pt; }
-      .timeline::before { content: ''; position: absolute; left: 0; top: 4pt; bottom: 0; width: 0.5pt; background-color: #CBD5E0; }
-      .timeline-item { position: relative; margin-bottom: 8pt; }
-      .timeline-item::before { content: ''; position: absolute; left: -12pt; top: 4pt; width: 6pt; height: 6pt; border-radius: 50%; background-color: var(--violetColor); }
-      .job-header { display: flex; justify-content: space-between; align-items: baseline; }
-      .job-title { font-weight: bold; }
-      .job-period { font-style: italic; font-size: 8pt; }
-      .job-link { font-size: 8pt; margin-left: 5pt; }
-      @media print {
-        body { width: 210mm; height: 297mm; }
-        .page-break { display: block; height: 0; page-break-before: always; }
+      h1 {
+        font-size: 20pt;
+        border-bottom: 2pt solid var(--violetColor);
+        padding-bottom: 4pt;
       }
-      
+      h2 {
+        font-size: 14pt;
+        border-bottom: 1pt solid var(--violetColor);
+        padding-bottom: 2pt;
+        margin-top: 12pt;
+      }
+      h3 {
+        font-size: 11pt;
+        color: var(--violetColor);
+      }
+      h4 {
+        font-size: 10pt;
+        font-style: italic;
+      }
+      p,
+      li {
+        margin: 0 0 3pt 0;
+      }
+      .section {
+        margin-bottom: 10pt;
+        page-break-inside: avoid;
+      }
+      .no-print {
+        display: none;
+      }
+      ul {
+        padding-left: 14pt;
+        margin: 3pt 0;
+      }
+      .contact-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6pt;
+        font-size: 8pt;
+      }
+      .project,
+      .job {
+        margin-bottom: 8pt;
+        padding-left: 6pt;
+        border-left: 1.5pt solid var(--violetColor);
+      }
+      .tech-category {
+        margin-bottom: 6pt;
+      }
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3pt;
+      }
+      .tech-item {
+        background-color: var(--violetLightColor);
+        padding: 1pt 3pt;
+        border-radius: 2pt;
+        font-size: 8pt;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      a {
+        color: var(--violetColor);
+        text-decoration: none;
+      }
+      .icon {
+        display: inline-block;
+        width: 10pt;
+        height: 10pt;
+        margin-right: 3pt;
+        vertical-align: middle;
+      }
+      .tag {
+        background-color: var(--violetLightColor);
+        padding: 1pt 2pt;
+        border-radius: 2pt;
+        font-size: 7pt;
+        margin-right: 2pt;
+      }
+      .timeline {
+        position: relative;
+        padding-left: 12pt;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 4pt;
+        bottom: 0;
+        width: 0.5pt;
+        background-color: #cbd5e0;
+      }
+      .timeline-item {
+        position: relative;
+        margin-bottom: 8pt;
+      }
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -12pt;
+        top: 4pt;
+        width: 6pt;
+        height: 6pt;
+        border-radius: 50%;
+        background-color: var(--violetColor);
+      }
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      .job-title {
+        font-weight: bold;
+      }
+      .job-period {
+        font-style: italic;
+        font-size: 8pt;
+      }
+      .job-link {
+        font-size: 8pt;
+        margin-left: 5pt;
+      }
+      @media print {
+        body {
+          width: 210mm;
+          height: 297mm;
+        }
+        .page-break {
+          display: block;
+          height: 0;
+          page-break-before: always;
+        }
+      }
+
       /* Nuevos estilos para el mensaje de agradecimiento */
       .thank-you-message {
         display: flex;
@@ -77,12 +196,12 @@ const violetLightColor = "#EDE9FE"; // Un violeta muy claro para fondos
         height: 100vh;
         text-align: center;
       }
-      
+
       .thank-you-message h1 {
         font-size: 24pt;
         margin-bottom: 20px;
       }
-      
+
       .home-button {
         background-color: var(--violetColor);
         color: white;
@@ -93,7 +212,7 @@ const violetLightColor = "#EDE9FE"; // Un violeta muy claro para fondos
         cursor: pointer;
         text-decoration: none;
       }
-      
+
       @media print {
         .thank-you-message {
           display: none;
@@ -120,8 +239,15 @@ const violetLightColor = "#EDE9FE"; // Un violeta muy claro para fondos
         <p><strong>{personalInfo.title}</strong> | {personalInfo.location}</p>
         <div class="contact-info">
           <span><span class="icon">📧</span>{personalInfo.email}</span>
-          <span><span class="icon">🔗</span><a href={personalInfo.linkedin}>LinkedIn</a></span>
-          <span><span class="icon">🐙</span><a href={personalInfo.github}>GitHub</a></span>
+          <span
+            ><span class="icon">🔗</span><a href={personalInfo.linkedin}
+              >LinkedIn</a
+            ></span
+          >
+          <span
+            ><span class="icon">🐙</span><a href={personalInfo.github}>GitHub</a
+            ></span
+          >
         </div>
       </header>
 
@@ -132,91 +258,107 @@ const violetLightColor = "#EDE9FE"; // Un violeta muy claro para fondos
 
       <section class="section">
         <h2>Habilidades Técnicas</h2>
-        {Object.entries(groupedTechnologies).map(([category, techs]) => (
-          <div class="tech-category">
-            <h3>{category.charAt(0).toUpperCase() + category.slice(1)}</h3>
-            <div class="tech-list">
-              {techs.map((tech) => (
-                <span class="tech-item">{tech.name} ({tech.level})</span>
-              ))}
+        {
+          Object.entries(groupedTechnologies).map(([category, techs]) => (
+            <div class="tech-category">
+              <h3>{category.charAt(0).toUpperCase() + category.slice(1)}</h3>
+              <div class="tech-list">
+                {techs.map((tech) => (
+                  <span class="tech-item">
+                    {tech.name} ({tech.level})
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </section>
 
       <section class="section">
         <h2>Habilidades Blandas</h2>
         <ul>
-          {softSkills.map((skill) => (
-            <li>
-              <strong>{skill.name}:</strong> {skill.description}
-            </li>
-          ))}
+          {
+            softSkills.map((skill) => (
+              <li>
+                <strong>{skill.name}:</strong> {skill.description}
+              </li>
+            ))
+          }
         </ul>
       </section>
 
-<!--     <div class="page-break"></div>
+      <!--     <div class="page-break"></div>
  -->
       <section class="section">
         <h2>Proyectos Destacados</h2>
-        {projects.map((project) => (
-          <div class="project">
-            <h3>{project.name}</h3>
-            <p>{project.description}</p>
-            {project.link && <p><a href={project.link}>Ver proyecto</a></p>}
-            <p>
-              {project.tags.map((tag) => (
-                <span class="tag">{tag}</span>
-              ))}
-            </p>
-          </div>
-        ))}
+        {
+          projects.map((project) => (
+            <div class="project">
+              <h3>{project.name}</h3>
+              <p>{project.description}</p>
+              {project.link && (
+                <p>
+                  <a href={project.link}>Ver proyecto</a>
+                </p>
+              )}
+              <p>
+                {project.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </p>
+            </div>
+          ))
+        }
       </section>
 
       <section class="section">
         <h2>Experiencia Laboral</h2>
         <div class="timeline">
-          {experience.map((job) => (
-            <div class="timeline-item">
-              <div class="job-header">
-                <h3 class="job-title">{job.title}</h3>
-                <span class="job-period">{job.period}</span>
-              </div>
-              {job.details.map((detail) => (
-                <div class="job">
-                  <div class="job-header">
-                    <h4>{detail.title}</h4>
-                    {detail.link && (
-                      <a href={detail.link} class="job-link">Ver más</a>
+          {
+            experience.map((job) => (
+              <div class="timeline-item">
+                <div class="job-header">
+                  <h3 class="job-title">{job.title}</h3>
+                  <span class="job-period">{job.period}</span>
+                </div>
+                {job.details.map((detail) => (
+                  <div class="job">
+                    <div class="job-header">
+                      <h4>{detail.title}</h4>
+                      {detail.link && (
+                        <a href={detail.link} class="job-link">
+                          Ver más
+                        </a>
+                      )}
+                    </div>
+                    <p>{detail.description}</p>
+                    {detail.technologies && (
+                      <p>
+                        {detail.technologies.map((tech) => (
+                          <span class="tag">{tech}</span>
+                        ))}
+                      </p>
+                    )}
+                    {detail.tags && (
+                      <p>
+                        {detail.tags.map((tag) => (
+                          <span class="tag">{tag}</span>
+                        ))}
+                      </p>
                     )}
                   </div>
-                  <p>{detail.description}</p>
-                  {detail.technologies && (
-                    <p>
-                      {detail.technologies.map((tech) => (
-                        <span class="tag">{tech}</span>
-                      ))}
-                    </p>
-                  )}
-                  {detail.tags && (
-                    <p>
-                      {detail.tags.map((tag) => (
-                        <span class="tag">{tag}</span>
-                      ))}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-          ))}
+                ))}
+              </div>
+            ))
+          }
         </div>
       </section>
     </div>
 
     <script>
-      window.onload = function() {
-        if (window.matchMedia('print').matches) {
-          document.querySelector('.cv-content').style.display = 'block';
+      window.onload = function () {
+        if (window.matchMedia("print").matches) {
+          document.querySelector(".cv-content").style.display = "block";
         } else {
           window.print();
         }
